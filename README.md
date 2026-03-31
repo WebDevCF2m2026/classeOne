@@ -289,3 +289,61 @@ if(!isset($_GET['p'])){
 27) Création des différentes vues suivants la demande ou les besoins :
 
 ### Toute notre navigation est liée à la variable $_GET['p']
+
+28) Divers
+- Mettre la variable get en majuscule : 
+```php
+Portfolio - <?= ucfirst($_GET['p']) ?>
+```
+- Créer le menu à la volée : on a une constante qui contient nos pages (ARRAY_VALID_PAGES)
+```php
+<?php
+# tant qu'on a des pages (éléments du menu)
+foreach(ARRAY_VALID_PAGES as $page):
+?>
+    <li><a href="./?p=<?= $page ?>"><?= ucfirst($page) ?></a></li>
+<?php
+endforeach
+?>
+```
+- Pour la classe active dans le menu `class="active"` pour chaque pages sauf 404 :
+
+```php
+<?php
+# view/inc/menu.php
+?>
+<nav>
+    <a href="./" class="logo">Portfolio</a>
+    <button class="menu-toggle">☰</button>
+    <ul class="nav-links">
+<?php
+// si on est sur l'accueil
+if(!isset($_GET['p'])):
+?>
+        <li><a href="./" class="active">Accueil</a></li>
+<?php
+// on est pas sur la page d'accueil
+else:
+?>
+        <li><a href="./">Accueil</a></li>
+<?php
+// fin de condition
+endif;       
+# tant qu'on a des pages (éléments du menu)
+foreach(ARRAY_VALID_PAGES as $page):
+    // vérification de la page actuelle pour mettre 
+    // en actif si identique à la variable get qui
+    // doit exister (isset pour éviter le bug de accueil)
+    $active = (isset($_GET['p']) && $page == $_GET['p'])
+            ? 'class="active"' 
+            : "";
+
+?>
+<li><a href="./?p=<?= $page ?>" <?= $active ?>><?= ucfirst($page) ?></a></li>
+<?php
+endforeach;
+?>
+    </ul>
+</nav>
+
+```
