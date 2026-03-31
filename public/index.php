@@ -23,6 +23,8 @@ if(!isset($_GET['p'])){
     // chargement de view/homepage.php
     include ROOT_PATH."/view/homepage.php";
 
+// sinon si la variable get 'p' est dans le
+// tableau ARRAY_VALID_PAGES    
 }
 
 /* test de la constante racine

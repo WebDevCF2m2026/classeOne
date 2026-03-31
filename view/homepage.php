@@ -9,17 +9,13 @@
 <body>
 
     <header>
-        <nav>
-            <a href="index.html" class="logo">DevPortfolio</a>
-            <button class="menu-toggle">☰</button>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="a-propos.html">À propos</a></li>
-                <li><a href="competences.html">Compétences</a></li>
-                <li><a href="projets.html">Projets</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <?php
+        // chemin absolu
+        include ROOT_PATH."/view/inc/menu.php";
+        // chemin relatif (en PHP à partir de la page qui appelle)
+        # include "inc/menu.php";
+
+        ?>
     </header>
 
     <main>
@@ -34,7 +30,13 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 - Portfolio Développeur PHP / React. Construit en HTML/CSS/JS natif.</p>
+        <?php
+        // chemin absolu
+        include ROOT_PATH."/view/inc/footer.php";
+        // chemin relatif (en PHP à partir de la page qui appelle)
+        # include "inc/footer.php";
+
+        ?>
     </footer>
 
     <script src="js/script.js"></script>

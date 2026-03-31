@@ -166,8 +166,72 @@ if(!isset($_GET['p'])){
 
 22) On doit créer les dossiers `css`, `js` et `images` dans le dossier publique (pour l'exercice on peut les copier de `datas` à `public`, pas pour le TI)
 
-23) On va séparer la page `homepage.php` en 3 parties, qu'on pourra inclure suivant la demande :
-    - `view/inc/header.php` pour l'entête
+23) On va séparer la page `homepage.php` en 2 parties, qu'on pourra inclure suivant la demande :
     - `view/inc/menu.php` pour le menu
     - `view/inc/footer.php` pour le footer
- 
+dans le fichier `homepage.php` :
+
+```php
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Développeur PHP/React</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <?php
+        // chemin absolu
+        include ROOT_PATH."/view/inc/menu.php";
+        // chemin relatif (en PHP à partir de la page qui appelle)
+        # include "inc/menu.php";
+
+        ?>
+    </header>
+
+    <main>
+        <section style="text-align: center; margin-top: 10vh;">
+            <h1>Bonjour, je suis <span class="text-highlight">Développeur Junior</span></h1>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; color: var(--text-light);">
+                Spécialisé dans l'écosystème PHP (Symfony) et JavaScript (React). 
+                Je conçois des API robustes et des interfaces dynamiques en m'appuyant sur une logique analytique stricte.
+            </p>
+            <a href="projets.html" class="btn btn-primary">Explorer mes projets</a>
+        </section>
+    </main>
+
+    <footer>
+        <?php
+        // chemin absolu
+        include ROOT_PATH."/view/inc/footer.php";
+        // chemin relatif (en PHP à partir de la page qui appelle)
+        # include "inc/footer.php";
+
+        ?>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+```
+
+24) On va mettre à jour les liens du `inc/menu.php` pour utiliser la variable get 'p'
+
+```php
+<nav>
+    <a href="./" class="logo">Portfolio</a>
+    <button class="menu-toggle">☰</button>
+    <ul class="nav-links">
+        <li><a href="./">Accueil</a></li>
+        <li><a href="./?p=about">À propos</a></li>
+        <li><a href="./?p=skills">Compétences</a></li>
+        <li><a href="./?p=projects">Projets</a></li>
+        <li><a href="./?p=contact">Contact</a></li>
+    </ul>
+</nav>
+```
+
+25) On va vérifier dans le contrôleur frontal si `p` a une valeur acceptée
