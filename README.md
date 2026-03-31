@@ -347,3 +347,12 @@ endforeach;
 </nav>
 
 ```
+29) Créez votre repository sur github sur 
+https://github.com/new
+en public, ne cochez rien pour ne pas avoir de commit online puis
+
+```
+git remote add origin git@github.com:WebDevCF2m2026/classeOne.git
+git branch -M main
+git push -u origin main
+```
