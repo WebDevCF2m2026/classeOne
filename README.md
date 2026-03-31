@@ -162,5 +162,9 @@ if(!isset($_GET['p'])){
 }
 ```
 
-21) 
+21) On copie le contenue de `datas/index.html` dans `view/homepage.php`, on constate des soucis de chargement de `css`, `js` et `images`. Les liens de notre modèle pointe vers des pages en html.
+
+22) On doit créer les dossiers `css`, `js` et `images` dans le dossier publique (pour l'exercice on peut les copier de `datas` à `public`, pas pour le TI)
+
+
  
