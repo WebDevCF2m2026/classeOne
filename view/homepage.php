@@ -25,7 +25,7 @@
                 Spécialisé dans l'écosystème PHP (Symfony) et JavaScript (React). 
                 Je conçois des API robustes et des interfaces dynamiques en m'appuyant sur une logique analytique stricte.
             </p>
-            <a href="projets.html" class="btn btn-primary">Explorer mes projets</a>
+            <a href="?p=projects" class="btn btn-primary">Explorer mes projets</a>
         </section>
     </main>
 

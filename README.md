@@ -260,8 +260,32 @@ if(!isset($_GET['p'])){
 }elseif(in_array($_GET['p'],ARRAY_VALID_PAGES)){
     // inclusion de la vue autorisée
     include ROOT_PATH."/view/".$_GET['p'].".php";
+
 }
 
 ```
 
-26) 
+26) Si la page n'est pas existente, appel de `view/error404.php` :
+
+```php
+if(!isset($_GET['p'])){
+
+    // Nous sommes sur l'accueil
+    // chargement de view/homepage.php
+    include ROOT_PATH."/view/homepage.php";
+
+// sinon si la variable get 'p' est dans le
+// tableau ARRAY_VALID_PAGES    
+}elseif(in_array($_GET['p'],ARRAY_VALID_PAGES)){
+    // inclusion de la vue autorisée
+    include ROOT_PATH."/view/".$_GET['p'].".php";
+
+// sinon (p non valide)    
+}else{
+    include ROOT_PATH."/view/error404.php";
+}
+```
+
+27) Création des différentes vues suivants la demande ou les besoins :
+
+### Toute notre navigation est liée à la variable $_GET['p']

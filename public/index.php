@@ -28,6 +28,10 @@ if(!isset($_GET['p'])){
 }elseif(in_array($_GET['p'],ARRAY_VALID_PAGES)){
     // inclusion de la vue autorisée
     include ROOT_PATH."/view/".$_GET['p'].".php";
+    
+// sinon (p non valide)    
+}else{
+    include ROOT_PATH."/view/error404.php";
 }
 
 /* test de la constante racine
