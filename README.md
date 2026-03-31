@@ -166,5 +166,8 @@ if(!isset($_GET['p'])){
 
 22) On doit créer les dossiers `css`, `js` et `images` dans le dossier publique (pour l'exercice on peut les copier de `datas` à `public`, pas pour le TI)
 
-
+23) On va séparer la page `homepage.php` en 3 parties, qu'on pourra inclure suivant la demande :
+    - `view/inc/header.php` pour l'entête
+    - `view/inc/menu.php` pour le menu
+    - `view/inc/footer.php` pour le footer
  
